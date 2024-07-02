@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 8 # numero de pods
+  selector:
+    matchLabels: # label = etiqueta
+      etiqueta: nginx-label # essa etiqueta que o deploy vai procurar nos pods que ele gerenciar
+  template: # é a forma para criação
+    metadata: 
+      labels: # label = etiqueta
+        etiqueta: nginx-label # etiqueta para ser gerenciado pelo deploy
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.1"
+              memory: "256Mi"

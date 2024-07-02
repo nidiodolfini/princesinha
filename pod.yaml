@@ -1,0 +1,24 @@
+# forma declarativa de criar um pod no kubernetes
+apiVersion: v1 # a versão da API do kubernetes
+kind: Pod # o tipo de recurso que estamos criando
+metadata: # metadados do recurso, onde você define informações que não serão nos containers
+  name: ngix # o nome do pod
+spec: # a especificação do pod, aqui você define tudo que vai ser criado dentro do pod, como containers, volumes, etc
+  containers:
+    - name: nginx
+      image: nginx:latest
+      resources:
+        limits:
+          cpu: "0.5"
+          memory: "512Mi"
+        requests:
+          cpu: "0.1"
+          memory: "256Mi"
+
+# kubectl run nginx9 --image=nginx:latest ------ forma imperativa de criar um pod no kubernetes
+
+# node são as máquinas físicas ou virtuais que rodam os pods
+
+# kubectl apply -f pod.yaml
+
+# 

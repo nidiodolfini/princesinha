@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: httpd-deployment
 spec:
   replicas: 2 # numero de pods
   selector:
     matchLabels: # label = etiqueta
-      etiqueta: nginx-label # essa etiqueta que o deploy vai procurar nos pods que ele gerenciar
+      etiqueta: httpd-label # essa etiqueta que o deploy vai procurar nos pods que ele gerenciar
   template: # é a forma para criação
     metadata: 
       labels: # label = etiqueta
-        etiqueta: nginx-label # etiqueta para ser gerenciado pelo deploy
+        etiqueta: httpd-label # etiqueta para ser gerenciado pelo deploy
     spec:
       containers:
-        - name: nginx-container
-          image: nginx
+        - name: httpd-container
+          image: httpd
           ports:
             - containerPort: 80
           resources:

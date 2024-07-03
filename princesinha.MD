@@ -34,5 +34,14 @@ kubectl delete -f nomedoarquivo.yaml
     exclui todos os recursos dentro do arquivo
 
 
+kubectl describe pod nomedopod
+    descreve todas as infos do pod, incluindo imagem, nome do container e eventos do container
+
+kubectl exec -it nomedopod bash
+    aqui eu passo que quero executar algo dentro do pod, no nosso caso estamos chamando um terminal bash (telinha preta) os parametros -t é pra dizer que vamos abrir um terminal -i é de interativo para poder digitar o comando
+
+
+tarefinha:
+    descobrir como alterar o arquivo index.html dentro do nginx dentro do nosso pod
 
 
